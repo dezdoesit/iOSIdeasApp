@@ -17,18 +17,46 @@ struct ContentView: View {
     @State private var newIdeaDescription = ""
 
 
+    var wipIdeas: [AppIdea] {
+        ideas.filter { $0.inWorks }
+    }
+
+    var nonwipIdeas: [AppIdea] {
+        ideas.filter { $0.inWorks == false }
+    }
+
 
     var body: some View {
         NavigationStack{
-            List(ideas) { idea in
-                IdeaListView(idea: idea)
+            Group { if ideas.isEmpty  {
+                ContentUnavailableView("No App Ideas",
+                                       systemImage: "rectangle.on.rectangle.slash",
+                                       description: Text("Tap Add to create a new App Idea.")
+
+
+                )
+
+            } else {
+                List {
+                    Section("Work in Progress") {
+                        ForEach(wipIdeas) {
+                            IdeaListView(idea: $0)
+                        }
+                    }
+                    Section("All") {
+                        ForEach(nonwipIdeas) {
+                            IdeaListView(idea: $0)
+                        }
+                    }
+                }
+            }
             }
             .navigationTitle("App Ideas")
             .navigationDestination(for: AppIdea.self) { EditIdeaView(idea: $0) }
             .toolbar {
                 Button("Add") {
                     showAddIdea.toggle()
-                    
+
                 }
             }
             .sheet(isPresented: $showAddIdea) {
@@ -53,13 +81,15 @@ struct ContentView: View {
                 .presentationDetents([.medium])
             }
         }
-
     }
     private func resetIdeas() {
         newIdeaName = ""
         newIdeaDescription = ""
     }
 }
+
+
+
 
 #Preview {
     ContentView()

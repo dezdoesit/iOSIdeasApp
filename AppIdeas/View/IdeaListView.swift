@@ -20,14 +20,23 @@ struct IdeaListView: View {
                     .foregroundStyle(.secondary)
             }
         }
-        .swipeActions {
-            Button(role: .destructive) { 
+        .swipeActions(edge: .trailing, allowsFullSwipe: false) {
+            Button(role: .destructive) {
                 modelContext.delete(idea)
             } label: {
                 Label("Delete", systemImage: "trash")
             }
         }
+        .swipeActions(edge: .leading, allowsFullSwipe: true) {
+            Button{
+                idea.inWorks.toggle()
+            } label: {
+                Label("In the works!", systemImage: idea.inWorks ? "pencil.slash" : "pencil")
+            }
+            .tint(.green)
+        }
         .sensoryFeedback(.decrease, trigger: idea.isDeleted)
+        .sensoryFeedback(.increase, trigger: idea.inWorks )
     }
 }
 
