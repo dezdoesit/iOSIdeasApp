@@ -32,6 +32,7 @@ struct ContentView: View {
                 }
             }
             .navigationTitle("App Ideas")
+            .navigationDestination(for: AppIdea.self) { EditIdeaView(idea: $0) }
             .toolbar {
                 Button("Add") {
                     showAddIdea.toggle()
