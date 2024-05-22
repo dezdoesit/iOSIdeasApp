@@ -28,6 +28,7 @@ struct ContentView: View {
             .toolbar {
                 Button("Add") {
                     showAddIdea.toggle()
+                    
                 }
             }
             .sheet(isPresented: $showAddIdea) {
@@ -35,7 +36,6 @@ struct ContentView: View {
                     Form{
                         TextField("Name", text: $newIdeaName)
                         TextField("Description", text: $newIdeaDescription)
-
                     }
                     .navigationTitle("New App Idea")
                     .toolbar {
@@ -43,9 +43,10 @@ struct ContentView: View {
                             showAddIdea.toggle()
                         }
                         Button("Save") {
-let idea = AppIdea(name: newIdeaName, detailedDescription: newIdeaDescription)
+                            let idea = AppIdea(name: newIdeaName, detailedDescription: newIdeaDescription)
                             modelContext.insert(idea)
                             showAddIdea.toggle()
+                            resetIdeas()
                         }
                     }
                 }
@@ -53,6 +54,10 @@ let idea = AppIdea(name: newIdeaName, detailedDescription: newIdeaDescription)
             }
         }
 
+    }
+    private func resetIdeas() {
+        newIdeaName = ""
+        newIdeaDescription = ""
     }
 }
 

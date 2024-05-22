@@ -102,8 +102,8 @@
 		4C3F3EAD2BFD3B430085AAF6 /* AppIdeas */ = {
 			isa = PBXGroup;
 			children = (
-				4C3F3EDB2BFD3C080085AAF6 /* View */,
 				4C3F3EDA2BFD3C010085AAF6 /* Model */,
+				4C3F3EDB2BFD3C080085AAF6 /* View */,
 				4C3F3EAE2BFD3B430085AAF6 /* AppIdeasApp.swift */,
 				4C3F3EB42BFD3B450085AAF6 /* Assets.xcassets */,
 				4C3F3EB62BFD3B450085AAF6 /* Preview Content */,

@@ -9,7 +9,10 @@ import SwiftUI
 import SwiftData
 
 struct EditIdeaView: View {
+    @Environment(\.modelContext) private var modelContext
     @Bindable var idea: AppIdea
+
+
     @State private var newFeatureDescription = ""
 
     var body: some View {
@@ -28,6 +31,14 @@ struct EditIdeaView: View {
 
                 ForEach(idea.features) { feature in
                     Text(feature.detailedDescrition)
+                        .contextMenu {
+                            Button(role: .destructive) {
+                                idea.features.removeAll(where: { $0 == feature })
+                                
+                            } label: {
+                                Label("Delete Feature", systemImage: "trash")
+                            }
+                        }
                 }
             }
         }

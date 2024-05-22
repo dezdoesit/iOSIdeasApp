@@ -21,12 +21,13 @@ struct IdeaListView: View {
             }
         }
         .swipeActions {
-            Button(role: .destructive) {
+            Button(role: .destructive) { 
                 modelContext.delete(idea)
             } label: {
                 Label("Delete", systemImage: "trash")
             }
         }
+        .sensoryFeedback(.decrease, trigger: idea.isDeleted)
     }
 }
 
