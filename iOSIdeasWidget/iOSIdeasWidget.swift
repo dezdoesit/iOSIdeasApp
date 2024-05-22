@@ -51,12 +51,13 @@ struct iOSIdeasWidgetEntryView : View {
             ForEach(entry.appIdeas) { idea in
                 Button(intent: ToggleWipIntent(appIdeaNmae: idea.name)) {
 
-                }
-                HStack {
-                    Image(systemName: idea.inWorks ? "pencil.slash" : "pencil")
-                        .foregroundStyle(.green)
-                    Spacer()
-                    Text(idea.name)
+
+                    HStack {
+                        Image(systemName: idea.inWorks ? "pencil.slash" : "pencil")
+                            .foregroundStyle(.green)
+                        Spacer()
+                        Text(idea.name)
+                    }
                 }
 
             }
