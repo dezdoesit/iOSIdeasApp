@@ -26,7 +26,7 @@ struct IdeaListView: View {
             } label: {
                 Label("Delete", systemImage: "trash")
             }
-        }
+        }.sensoryFeedback(.decrease, trigger: idea.isDeleted)
         .swipeActions(edge: .leading, allowsFullSwipe: true) {
             Button{
                 idea.inWorks.toggle()
@@ -35,7 +35,6 @@ struct IdeaListView: View {
             }
             .tint(.green)
         }
-        .sensoryFeedback(.decrease, trigger: idea.isDeleted)
         .sensoryFeedback(.increase, trigger: idea.inWorks )
     }
 }
