@@ -52,6 +52,7 @@
 		4C3F3EDE2BFD3E910085AAF6 /* Feature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feature.swift; sourceTree = "<group>"; };
 		4C3F3EE02BFD6B9D0085AAF6 /* EditIdeaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditIdeaView.swift; sourceTree = "<group>"; };
 		4C3F3EE22BFD73540085AAF6 /* IdeaListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdeaListView.swift; sourceTree = "<group>"; };
+		4C3F3EE72BFE62BB0085AAF6 /* AppIdeas.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AppIdeas.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +103,7 @@
 		4C3F3EAD2BFD3B430085AAF6 /* AppIdeas */ = {
 			isa = PBXGroup;
 			children = (
+				4C3F3EE72BFE62BB0085AAF6 /* AppIdeas.entitlements */,
 				4C3F3EDA2BFD3C010085AAF6 /* Model */,
 				4C3F3EDB2BFD3C080085AAF6 /* View */,
 				4C3F3EAE2BFD3B430085AAF6 /* AppIdeasApp.swift */,
@@ -451,6 +453,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = AppIdeas/AppIdeas.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AppIdeas/Preview Content\"";
@@ -480,6 +483,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = AppIdeas/AppIdeas.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"AppIdeas/Preview Content\"";
